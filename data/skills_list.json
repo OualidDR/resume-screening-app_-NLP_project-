@@ -1,3 +1,40 @@
 {
-  "skills": []
+  "langages": [
+    "python", "java", "javascript", "typescript", "c++", "c#", "r", "scala",
+    "sql", "bash", "go", "rust", "kotlin", "swift", "php", "ruby"
+  ],
+  "frameworks_ml": [
+    "tensorflow", "pytorch", "keras", "scikit-learn", "xgboost", "lightgbm",
+    "hugging face", "transformers", "sentence-transformers", "spacy", "nltk",
+    "gensim", "fastai"
+  ],
+  "frameworks_web": [
+    "django", "flask", "fastapi", "streamlit", "react", "vue", "angular",
+    "node.js", "spring", "express"
+  ],
+  "data": [
+    "pandas", "numpy", "matplotlib", "seaborn", "plotly", "spark", "hadoop",
+    "airflow", "dbt", "excel", "power bi", "tableau"
+  ],
+  "nlp": [
+    "nlp", "bert", "gpt", "word2vec", "tf-idf", "tokenization", "lemmatisation",
+    "ner", "text classification", "sentiment analysis", "embeddings",
+    "traitement du langage naturel"
+  ],
+  "cloud_devops": [
+    "aws", "azure", "gcp", "docker", "kubernetes", "git", "github", "gitlab",
+    "ci/cd", "terraform", "linux"
+  ],
+  "bases_de_donnees": [
+    "mysql", "postgresql", "mongodb", "redis", "sqlite", "oracle",
+    "elasticsearch", "cassandra"
+  ],
+  "soft_skills": [
+    "communication", "travail en équipe", "gestion de projet", "autonomie",
+    "résolution de problèmes", "leadership", "adaptabilité", "rigueur"
+  ],
+  "finance": [
+    "finance", "comptabilité", "analyse financière", "modélisation financière",
+    "bloomberg", "vba", "risk management", "trading", "portfolio"
+  ]
 }

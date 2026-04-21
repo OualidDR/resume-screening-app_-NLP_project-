@@ -1,0 +1,4 @@
+Nous recherchons un Data Scientist avec une expérience en Python, 
+machine learning et NLP. Compétences requises : pandas, scikit-learn, 
+TensorFlow ou PyTorch, SQL. Connaissance de BERT et des transformers 
+appréciée. Capacité à travailler en équipe et à communiquer les résultats.

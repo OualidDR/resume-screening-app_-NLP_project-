@@ -1,8 +1,18 @@
-streamlit
-numpy
-pandas
-scikit-learn
-transformers
-torch
-nltk
-spacy
+# ── Extraction de texte ──────────────────────────────────────────
+PyPDF2==3.0.1
+python-docx==1.1.2
+
+# ── NLP & Embeddings ─────────────────────────────────────────────
+sentence-transformers==2.7.0
+transformers==4.40.0
+torch==2.2.2
+scikit-learn==1.4.2
+
+# ── Interface utilisateur ─────────────────────────────────────────
+streamlit==1.35.0
+
+# ── Utilitaires ───────────────────────────────────────────────────
+python-dotenv==1.0.1
+numpy==1.26.4
+pandas==2.2.2
+loguru==0.7.2

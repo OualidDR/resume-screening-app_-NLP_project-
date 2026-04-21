@@ -1,4 +1,34 @@
+# Environnement Python
+.venv/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Variables d'environnement
 .env
+
+# Données sensibles (CVs réels)
+data/cvs/*.pdf
+data/cvs/*.docx
+
+# Modèles et cache (trop lourds pour git)
 artifacts/
+*.pkl
+*.pt
+*.bin
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
