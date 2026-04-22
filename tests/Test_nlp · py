@@ -1,0 +1,97 @@
+"""
+test_nlp.py — Tests unitaires pour le module NLP
+Lancer : python -m pytest tests/test_nlp.py -v
+"""
+
+import numpy as np
+from app.nlp.embeddings import get_embedding, get_embeddings_batch
+from app.nlp.similarity import (
+    compute_similarity,
+    compute_similarity_batch,
+    score_to_percent,
+    interpret_score,
+)
+
+
+# ── Tests embeddings ──────────────────────────────────────────────────────────
+
+def test_embedding_shape():
+    """L'embedding doit avoir 384 dimensions (MiniLM)."""
+    vec = get_embedding("Data scientist with Python skills")
+    assert vec.shape == (384,)
+
+
+def test_embedding_empty_text():
+    """Un texte vide doit retourner un vecteur zéro."""
+    vec = get_embedding("")
+    assert np.all(vec == 0)
+
+
+def test_embeddings_batch_shape():
+    """Le batch doit retourner une matrice (N x 384)."""
+    texts = ["cv data scientist", "cv finance analyst", "cv developer"]
+    matrix = get_embeddings_batch(texts)
+    assert matrix.shape == (3, 384)
+
+
+def test_embeddings_batch_empty():
+    """Un batch vide doit retourner une matrice vide."""
+    matrix = get_embeddings_batch([])
+    assert matrix.shape == (0, 384)
+
+
+# ── Tests similarité ─────────────────────────────────────────────────────────
+
+def test_similarity_same_text():
+    """La similarité d'un texte avec lui-même doit être proche de 1.0."""
+    text = "Python machine learning data scientist NLP"
+    score = compute_similarity(text, text)
+    assert score >= 0.99
+
+
+def test_similarity_different_texts():
+    """Deux textes très différents doivent avoir une similarité faible."""
+    score = compute_similarity(
+        "Python data science machine learning",
+        "Chef cuisinier restauration gastronomique"
+    )
+    assert score < 0.6
+
+
+def test_similarity_score_between_0_and_1():
+    """Le score doit toujours être entre 0 et 1."""
+    score = compute_similarity("data analyst sql", "finance comptabilité")
+    assert 0.0 <= score <= 1.0
+
+
+def test_similarity_batch_length():
+    """Le batch doit retourner autant de scores que de CVs."""
+    cvs = ["python developer", "finance analyst", "hr manager"]
+    scores = compute_similarity_batch(cvs, "We need a Python developer")
+    assert len(scores) == 3
+
+
+def test_similarity_batch_relevant_cv_scores_higher():
+    """Le CV pertinent doit avoir un score plus élevé que les autres."""
+    job = "We are looking for a Python data scientist with NLP experience"
+    cvs = [
+        "Experienced data scientist Python NLP machine learning",  # pertinent
+        "Chef cuisinier 10 ans expérience restauration",            # non pertinent
+    ]
+    scores = compute_similarity_batch(cvs, job)
+    assert scores[0] > scores[1]
+
+
+# ── Tests utilitaires ─────────────────────────────────────────────────────────
+
+def test_score_to_percent():
+    assert score_to_percent(0.85) == 85
+    assert score_to_percent(0.0)  == 0
+    assert score_to_percent(1.0)  == 100
+
+
+def test_interpret_score():
+    assert "Excellent" in interpret_score(0.80)
+    assert "Bon"       in interpret_score(0.60)
+    assert "moyen"     in interpret_score(0.40)
+    assert "Faible"    in interpret_score(0.20)
