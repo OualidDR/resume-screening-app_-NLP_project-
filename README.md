@@ -1,6 +1,30 @@
 # 📄 Resume Screening App — NLP & Modèles Sémantiques
 
-Application intelligente de présélection de CV utilisant BERT et la similarité cosinus.
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+> Application intelligente de présélection de CV utilisant l'IA (BERT / Sentence-Transformers) et la similarité cosinus pour automatiser le matching sémantique entre profils candidats et offres d'emploi.
+
+---
+
+## 📑 Table des matières
+- [Fonctionnalités](#-fonctionnalités)
+- [ Installation](#-installation)
+- [ Architecture](#️-architecture)
+- [ Stack Technique](#️-stack_technique)
+- [Pipeline](#️-Pipeline)
+
+
+---
+## ✨ Fonctionnalités
+
+| Catégorie | Détails |
+|:----------|:--------|
+| 📥 **Extraction Multi-Format** | Parsing automatique des fichiers PDF (`PyPDF2`) et DOCX (`python-docx`) avec préservation de la structure. |
+| 🧠 **Embeddings Sémantiques** | Vectorisation contextuelle via `all-MiniLM-L6-v2` pour une compréhension fine du langage naturel. |
+| 📊 **Scoring Hybride** | Score de pertinence combiné : `70% similarité sémantique` + `30% matching de compétences techniques`. |
+| 🎯 **Classement Automatique** | Tri décroissant des candidats avec visualisation des forces/faiblesses par rapport à l'offre. |
+| 🖥️ **Interface Streamlit** | Application web interactive : upload drag & drop, zone de saisie d'offre, mode sombre/clair. |
+| 🪵 **Logging & Cache** | Suivi structuré avec `loguru` et mise en cache locale des embeddings pour accélérer les analyses. |
 
 ---
 
@@ -23,7 +47,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-## ▶️ Lancement
+## ▶Lancement
 
 ```bash
 streamlit run run.py
@@ -31,7 +55,7 @@ streamlit run run.py
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 resume-screening-app/
@@ -53,7 +77,7 @@ resume-screening-app/
 └── run.py
 ```
 
-## 🔧 Stack technique
+## Stack_technique
 
 | Composant | Technologie |
 |---|---|
@@ -66,7 +90,7 @@ resume-screening-app/
 
 ---
 
-## 📊 Pipeline
+## Pipeline
 
 ```
 CV (PDF/DOCX) ──► Extraction texte ──► Nettoyage
