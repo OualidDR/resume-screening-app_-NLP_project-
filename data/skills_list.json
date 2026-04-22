@@ -1,6 +1,6 @@
 {
   "langages": [
-    "python", "java", "javascript", "typescript", "c++", "c#", "r", "scala",
+    "python", "java", "javascript", "typescript", "c++", "c#", "r language", "scala",
     "sql", "bash", "go", "rust", "kotlin", "swift", "php", "ruby"
   ],
   "frameworks_ml": [
