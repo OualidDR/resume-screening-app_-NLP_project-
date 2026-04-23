@@ -24,8 +24,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY app/   ./app/
 COPY data/  ./data/
 COPY run.py .
-COPY .env.example .env
-
+RUN echo "LOG_LEVEL=INFO" > .env
 RUN mkdir -p artifacts/embeddings_cache
 
 EXPOSE 8501
